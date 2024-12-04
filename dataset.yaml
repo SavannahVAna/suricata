@@ -1,0 +1,13 @@
+datasets:
+  defaults:
+    memcap: 10mb
+    hashsize: 1024
+  observed_ips:
+    type: ipv4
+    state: observed_ips.lst
+  observed_protocols:
+    type: ipv4
+    state: observed_protocols.lst
+    
+  
+#dataset conf to include in suricata.yaml

@@ -1,0 +1,8 @@
+#hhtp user agent
+alert http any any -> any any (msg:"New http user-agent"; http.user_agent; dataset:set,http-ua-seen, type string, state http-ua-seen.lst; sid:1000001; rev:1;)
+#tls ja4
+alert tls any any -> any any (msg:"New tls ja3"; tls.ja3; dataset:set,tls-ja3-seen, type string, state tls-ja3-seen.lst; sid:1000002; rev:1;)
+#tls sni et http.host
+alert tls any any -> any any (msg:"New tls sni and http host"; tls.sni; http.host; dataset:set,tls-http-set, type string, state tls-http-set.lst; sid:1000003; rev:1;)
+#ip destination sur internet a part http et tls
+alert ip any any -> any any (msg:"New internet destination (not http/tls)"; ip.dst; !http; !tls; dataset:set,ip-dst-set, type ipv4, state ip-dst-set.lst; sid:1000004; rev:1;)

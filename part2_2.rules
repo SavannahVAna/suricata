@@ -1,0 +1,2 @@
+alert http $IP_GW any -> !$HOME_NET any (msg:"Nouvelle connection http"; dataset:set,observed_ips,type ipv4,state observed_ips.lst; sid:1000001; rev:1;)
+#question 2 : on a un dataset observed_ips et on y enregiste les nouvelles ip avec qui la gateway a communiqué

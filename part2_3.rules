@@ -1,0 +1,2 @@
+alert any $IP_GW any -> any any (msg:"Nouveau protocole utilisé"; ip.src, ip.proto; dataset:set,observed_protocols,type ipv4,state observed_protocols.lst; sid:1000001; rev:1;)
+#on prend le protocole utilisé (ip.proto) et le set dans le dataset
