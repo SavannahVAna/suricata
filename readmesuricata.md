@@ -42,3 +42,11 @@ Ci dessous des graphes comparatifs de ces 3 valeurs en fonction du pourcentage d
 Le nombre de transactions et de fichiers récupérés semble faire sens avec la diminution du nombre de packets. Cependant, le nombre d'alertes est inconsistant. Cela peut etre du aux paquets qui ont été retirés qui pouvaient être important pour reconstruire le flux tcp par exemple.
 
 ## Détéction en périphérie
+
+Est-il possible d'écrire une signature alertant sur l'utilisation de nouveaux protocoles par IP_GW?
+
+ Les datasets de Suricata ne peuvent être utilisés qu'avec des sticky buffers, capturant des champs spécifiques (comme http.user_agent, tls.sni, etc.) d'un paquet ou d'une session.
+
+ Or il n'existe pas de sticky buffer intégré pour "protocoles" ou un champ qui listerait directement les protocoles observés sur un flux donné.
+
+ Donc il n’est pas possible d’utiliser directement des datasets pour détecter les nouveaux protocoles. 
